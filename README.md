@@ -27,7 +27,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Jeremiah Ajayi** - *Initial work* - [Lord-Jerry](https://github.com/Lord-Jerry)
+* **Jeremiah Ajayi** - [Lord-Jerry](https://github.com/Lord-Jerry)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
