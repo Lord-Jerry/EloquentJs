@@ -1,0 +1,30 @@
+{
+  "name": "eloquentjs",
+  "version": "1.0.0",
+  "description": "A simple SQL ORM for Nodejs thats aims to be as simple as laravels's eloquent ORM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lord-Jerry/EloquentJs.git"
+  },
+  "keywords": [
+    "SQL",
+    "ORM",
+    "NODEJS"
+  ],
+  "author": "Jeremiah Ajayi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lord-Jerry/EloquentJs/issues"
+  },
+  "homepage": "https://github.com/Lord-Jerry/EloquentJs#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0"
+  }
+}
