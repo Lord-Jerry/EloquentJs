@@ -71,6 +71,14 @@ class DataTypes {
   static MediumBlob() {
     return 'MEDIUMBLOB';
   }
+
+  /**
+   * LONGTEXT Holds a string with a maximum length 0f 4,294,967,295 characters
+   * @returns { string }
+   */
+  static LongText() {
+    return 'LONGTEXT';
+  }
 }
 
 module.exports = DataTypes;
