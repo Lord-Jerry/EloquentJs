@@ -31,6 +31,14 @@ class DataTypes {
 
     return `VARCHAR(${size})`;
   }
+
+  /**
+   * TINYTEXT Holds a string with a maximum length of 255 characters
+   * @returns {string}
+   */
+  static TinyText() {
+    return 'TINYTEXT';
+  }
 }
 
 module.exports = DataTypes;
