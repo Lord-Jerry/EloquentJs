@@ -34,10 +34,18 @@ class DataTypes {
 
   /**
    * TINYTEXT Holds a string with a maximum length of 255 characters
-   * @returns {string}
+   * @returns { string }
    */
   static TinyText() {
     return 'TINYTEXT';
+  }
+
+  /**
+   * TEXT Holds s string with the maximum length of 65,535
+   * @returns { string }
+   */
+  static Text() {
+    return 'TEXT';
   }
 }
 
