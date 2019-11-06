@@ -79,6 +79,13 @@ class DataTypes {
   static LongText() {
     return 'LONGTEXT';
   }
+
+  /**
+   * LONGBLOB Holds up to 4,294,967,295 bytes of data
+   */
+  static LongBlob() {
+    return 'LONGBLOB';
+  }
 }
 
 module.exports = DataTypes;
