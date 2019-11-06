@@ -47,6 +47,14 @@ class DataTypes {
   static Text() {
     return 'TEXT';
   }
+
+  /**
+   * BLOB Holds up to 65,535 bytes of data
+   * @returns { string }
+   */
+  static Blob() {
+    return 'BLOB';
+  }
 }
 
 module.exports = DataTypes;
