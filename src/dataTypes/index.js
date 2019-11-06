@@ -86,6 +86,21 @@ class DataTypes {
   static LongBlob() {
     return 'LONGBLOB';
   }
+
+  /**
+   * ENUM(...params) lets you enter a list of possible values. You can list up to 65535 values
+   * in an ENUM list. If a value is inserted that is not in the list, a blank value will be inserted
+   * NOTE: The values are sorted in the order you enter them
+   * @param { array } list - list of values to be inserted into the enum
+   * @returns { string }
+   */
+  static Enum(list) {
+    if (!Array.isArray(list)) {
+      throw new Error(`invalid type expected an array but got a ${typeof size} instead`);
+    }
+
+    return `ENUM(${String(list)})`;
+  }
 }
 
 module.exports = DataTypes;
