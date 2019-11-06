@@ -55,6 +55,13 @@ class DataTypes {
   static Blob() {
     return 'BLOB';
   }
+
+  /**
+   * MEDIUMTEXT Holds a string with a maximum length of 16,777,215 character
+   */
+  static MeduimText() {
+    return 'MEDIUMTEXT';
+  }
 }
 
 module.exports = DataTypes;
