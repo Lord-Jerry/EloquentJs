@@ -57,10 +57,19 @@ class DataTypes {
   }
 
   /**
-   * MEDIUMTEXT Holds a string with a maximum length of 16,777,215 character
+   * MEDIUMTEXT Holds a string with a maximum length of 16,777,215 characters
+   * @returns { string }
    */
   static MeduimText() {
     return 'MEDIUMTEXT';
+  }
+
+  /**
+   * MEDIUMBLOB Holds up to 16,777,215 bytes of data
+   * @returns { string }
+   */
+  static MediumBlob() {
+    return 'MEDIUMBLOB';
   }
 }
 
