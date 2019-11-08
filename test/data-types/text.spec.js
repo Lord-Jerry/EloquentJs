@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const DataTypes = require('../../src/dataTypes/index');
-const CompactDataTypeError = require('../../src/errors/dataType');
+const CompactDataTypeError = require('../../src/dataTypes/error');
 
 // Test for DataTypes Char method
 test('should return sql CHAR type', () => {

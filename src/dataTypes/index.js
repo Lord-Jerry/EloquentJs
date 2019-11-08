@@ -1,4 +1,4 @@
-const CompactDataTypeError = require('../errors/dataType');
+const CompactDataTypeError = require('./error');
 
 /**
  *
