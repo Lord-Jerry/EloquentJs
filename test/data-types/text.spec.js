@@ -53,3 +53,8 @@ test('should return sql TINYTEXT type', () => {
 test('should return sql TEXT type', () => {
   expect(DataTypes.Text()).toBe('TEXT');
 });
+
+// Test for DataTypes Blob Method
+test('should return sql BLOB type', () => {
+  expect(DataTypes.Blob()).toBe('BLOB');
+});
