@@ -1,4 +1,4 @@
-# EloquentJS
+# CompactJS
 
 An SQL ORM that aims to be as simple as Laravel's eloquent.
 
