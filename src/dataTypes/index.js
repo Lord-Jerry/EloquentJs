@@ -12,11 +12,11 @@ class DataTypes {
    */
   static Char(size = 255) {
     if ((typeof size !== 'number') || /\D/.test(size)) {
-      throw new CompactDataTypeError(`invalid type expected a number but got a ${typeof size} instead`);
+      throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
     }
 
     if (size > 255) {
-      throw new CompactDataTypeError('Maximium number of characeter for CHAR type exceeded');
+      throw new CompactDataTypeError('Maximium Length Of Characters For CHAR DataType Exceeded');
     }
 
     return `CHAR(${size})`;
@@ -30,8 +30,12 @@ class DataTypes {
    * @returns { string }
    */
   static VarChar(size = 255) {
-    if (typeof size !== 'number') {
-      throw new CompactDataTypeError(`invalid type expected a number but got a ${typeof size} instead`);
+    if ((typeof size !== 'number') || /\D/.test(size)) {
+      throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
+    }
+
+    if (size > 255) {
+      throw new CompactDataTypeError('Maximium Length Of Characters For VARCHAR DataType Exceeded');
     }
 
     return `VARCHAR(${size})`;
@@ -101,7 +105,7 @@ class DataTypes {
    */
   static Enum(list) {
     if (!Array.isArray(list)) {
-      throw new CompactDataTypeError(`invalid type expected an array but got a ${typeof size} instead`);
+      throw new CompactDataTypeError(`Invalid Argument, Expected An Array But Got ${list} Instead`);
     }
 
     return `ENUM(${String(list)})`;

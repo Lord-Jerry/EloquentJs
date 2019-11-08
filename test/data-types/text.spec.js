@@ -2,6 +2,7 @@
 const DataTypes = require('../../src/dataTypes/index');
 const CompactDataTypeError = require('../../src/errors/dataType');
 
+// Test for DataTypes Char method
 test('should return sql CHAR data type', () => {
   expect(DataTypes.Char(54)).toBe('CHAR(54)');
 });
