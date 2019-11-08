@@ -1,3 +1,4 @@
+const CompactDataTypeError = require('../errors/dataType');
 
 /**
  *
@@ -11,7 +12,7 @@ class DataTypes {
    */
   static Char(size = 255) {
     if (typeof size !== 'number') {
-      throw new Error(`invalid type expected a number but got a ${typeof size} instead`);
+      throw new CompactDataTypeError(`invalid type expected a number but got a ${typeof size} instead`);
     }
 
     return `CHAR(${size})`;
@@ -26,7 +27,7 @@ class DataTypes {
    */
   static VarChar(size = 255) {
     if (typeof size !== 'number') {
-      throw new Error(`invalid type expected a number but got a ${typeof size} instead`);
+      throw new CompactDataTypeError(`invalid type expected a number but got a ${typeof size} instead`);
     }
 
     return `VARCHAR(${size})`;
@@ -96,7 +97,7 @@ class DataTypes {
    */
   static Enum(list) {
     if (!Array.isArray(list)) {
-      throw new Error(`invalid type expected an array but got a ${typeof size} instead`);
+      throw new CompactDataTypeError(`invalid type expected an array but got a ${typeof size} instead`);
     }
 
     return `ENUM(${String(list)})`;
