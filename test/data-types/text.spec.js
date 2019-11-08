@@ -3,7 +3,7 @@ const DataTypes = require('../../src/dataTypes/index');
 const CompactDataTypeError = require('../../src/errors/dataType');
 
 // Test for DataTypes Char method
-test('should return sql CHAR data type', () => {
+test('should return sql CHAR type', () => {
   expect(DataTypes.Char(54)).toBe('CHAR(54)');
   expect(DataTypes.Char()).toBe('CHAR(255)');
 });
@@ -24,7 +24,7 @@ test('should throw error when Char method recieves argument that is not a number
 });
 
 // Test for DataTypes Varchar Method
-test('should return sql VARCHAR data type', () => {
+test('should return sql VARCHAR type', () => {
   expect(DataTypes.VarChar(54)).toBe('VARCHAR(54)');
   expect(DataTypes.VarChar()).toBe('VARCHAR(255)');
 });
@@ -45,6 +45,11 @@ test('should throw error when VarChar method recieves argument that is not a num
 });
 
 // Test for DataTypes TinyText Method
-test('should return sql TinyText data type', () => {
+test('should return sql TINYTEXT type', () => {
   expect(DataTypes.TinyText()).toBe('TINYTEXT');
+});
+
+// Test for DataTypes Text Method
+test('should return sql TEXT type', () => {
+  expect(DataTypes.Text()).toBe('TEXT');
 });
