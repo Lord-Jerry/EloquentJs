@@ -11,8 +11,12 @@ class DataTypes {
    * @returns { string }
    */
   static Char(size = 255) {
-    if (typeof size !== 'number') {
+    if ((typeof size !== 'number') || /\D/.test(size)) {
       throw new CompactDataTypeError(`invalid type expected a number but got a ${typeof size} instead`);
+    }
+
+    if (size > 255) {
+      throw new CompactDataTypeError('Maximium number of characeter for CHAR type exceeded');
     }
 
     return `CHAR(${size})`;
