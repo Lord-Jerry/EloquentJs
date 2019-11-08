@@ -43,3 +43,8 @@ test('should throw error when VarChar method recieves argument that is not a num
   expect(() => DataTypes.VarChar(-67)).toThrow(CompactDataTypeError);
   expect(() => DataTypes.VarChar(12.87)).toThrow(CompactDataTypeError);
 });
+
+// Test for DataTypes TinyText Method
+test('should return sql TinyText data type', () => {
+  expect(DataTypes.TinyText()).toBe('TINYTEXT');
+});
