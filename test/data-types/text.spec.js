@@ -58,3 +58,23 @@ test('should return sql TEXT type', () => {
 test('should return sql BLOB type', () => {
   expect(DataTypes.Blob()).toBe('BLOB');
 });
+
+// Test for DataTypes MediumText Method
+test('should return sql MEDIUMTEXT type', () => {
+  expect(DataTypes.MeduimText()).toBe('MEDIUMTEXT');
+});
+
+// Test for DataTypes MediumBlob Method
+test('should return sql MEDIUMBLOB type', () => {
+  expect(DataTypes.MediumBlob()).toBe('MEDIUMBLOB');
+});
+
+// Test for DataTypes LongText Method
+test('should return sql LONGTEXT type', () => {
+  expect(DataTypes.LongText()).toBe('LONGTEXT');
+});
+
+// Test for DataTypes LongBlob Method
+test('should return sql LONGBLOB type', () => {
+  expect(DataTypes.LongBlob()).toBe('LONGBLOB');
+});
