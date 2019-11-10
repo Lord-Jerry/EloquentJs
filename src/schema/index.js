@@ -1,6 +1,16 @@
 const _ = require('lodash');
 const logger = require('../utils/logger');
+const SchemaError = require('./error');
 
+const generateTypes = (options, key) => {
+  const { type } = options;
+
+  if (typeof type !== 'function') {
+    throw new SchemaError(`Invalid Argument, Expected type of ${key} to be a Function But Got ${typeof type} Instead`);
+  }
+
+  return `  ${key} ${type()}`;
+};
 class Schema {
   constructor(tableName, options) {
     this.tableName = tableName;
@@ -8,18 +18,20 @@ class Schema {
     this.sql = '';
 
     if (typeof this.tableName !== 'string') {
-      throw new Error('error');
+      throw new SchemaError('error');
     }
   }
 
   toSql() {
-    this.sql += `CREATE TABLE IF NOT EXISTS ${this.tableName} (`;
+    this.sql += `CREATE TABLE IF NOT EXISTS ${this.tableName} ( \n`;
     _.forEach(this.options, (value, key) => {
-      logger(value.type(), key);
+      this.sql += generateTypes(value, key);
+      this.sql += '\n';
     });
+    this.sql += '\n)';
 
     logger(this.sql);
   }
 }
 
-module.exports = { Schema };
+module.exports = Schema;
