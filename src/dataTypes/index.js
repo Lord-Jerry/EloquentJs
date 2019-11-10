@@ -1,25 +1,31 @@
 const CompactDataTypeError = require('./error');
 
 /**
- *
+ * NOTE: when passing DataType method to the schema,
+ * the schema expects functions passed to it to be a method of the DataType class,
+ * so methods that accepts arguments are expected to return a function,
+ * with the same name as it.
+ * So the the schema can check if that method truely exists in the DataType class
  */
 class DataTypes {
   /**
    * CHAR Holds a fixed length string that can contain letters, number and special characters
    * can store up to 255 characters
    * @param { integer } size - CHAR size
-   * @returns { string }
+   * @returns { function }
    */
   static Char(size = 255) {
-    if ((typeof size !== 'number') || /\D/.test(size)) {
-      throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
-    }
+    return function Char() {
+      if ((typeof size !== 'number') || /\D/.test(size)) {
+        throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
+      }
 
-    if (size > 255) {
-      throw new CompactDataTypeError('Maximium Length Of Characters For CHAR DataType Exceeded');
-    }
+      if (size > 255) {
+        throw new CompactDataTypeError('Maximium Length Of Characters For CHAR DataType Exceeded');
+      }
 
-    return `CHAR(${size})`;
+      return `CHAR(${size})`;
+    };
   }
 
   /**
@@ -30,15 +36,17 @@ class DataTypes {
    * @returns { string }
    */
   static VarChar(size = 255) {
-    if ((typeof size !== 'number') || /\D/.test(size)) {
-      throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
-    }
+    return function VarChar() {
+      if ((typeof size !== 'number') || /\D/.test(size)) {
+        throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
+      }
 
-    if (size > 255) {
-      throw new CompactDataTypeError('Maximium Length Of Characters For VARCHAR DataType Exceeded');
-    }
+      if (size > 255) {
+        throw new CompactDataTypeError('Maximium Length Of Characters For VARCHAR DataType Exceeded');
+      }
 
-    return `VARCHAR(${size})`;
+      return `VARCHAR(${size})`;
+    };
   }
 
   /**
@@ -104,11 +112,13 @@ class DataTypes {
    * @returns { string }
    */
   static Enum(list) {
-    if (!Array.isArray(list)) {
-      throw new CompactDataTypeError(`Invalid Argument, Expected An Array But Got ${list} Instead`);
-    }
+    return function Enum() {
+      if (!Array.isArray(list)) {
+        throw new CompactDataTypeError(`Invalid Argument, Expected An Array But Got ${list} Instead`);
+      }
 
-    return `ENUM(${String(list)})`;
+      return `ENUM(${String(list)})`;
+    };
   }
 }
 
