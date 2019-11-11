@@ -12,13 +12,13 @@ const generateTypes = (options, key) => {
 };
 class Schema {
   constructor(tableName, options) {
-    this.tableName = tableName;
-    this.options = options;
-    this.sql = '';
-
-    if (typeof this.tableName !== 'string') {
+    if (typeof tableName !== 'string') {
       throw new TypeError('error');
     }
+
+    this.tableName = tableName.toLowerCase();
+    this.options = options;
+    this.sql = '';
   }
 
   toSql() {
