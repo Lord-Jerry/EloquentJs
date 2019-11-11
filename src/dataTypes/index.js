@@ -1,4 +1,3 @@
-const CompactDataTypeError = require('./error');
 
 class DataTypes {
   /**
@@ -10,11 +9,11 @@ class DataTypes {
   static Char(size = 255) {
     return () => {
       if ((typeof size !== 'number') || /\D/.test(size)) {
-        throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
+        throw new TypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
       }
 
       if (size > 255) {
-        throw new CompactDataTypeError('Maximium Length Of Characters For CHAR DataType Exceeded');
+        throw new Error('Maximium Length Of Characters For CHAR DataType Exceeded');
       }
 
       return `CHAR(${size})`;
@@ -31,11 +30,11 @@ class DataTypes {
   static VarChar(size = 255) {
     return () => {
       if ((typeof size !== 'number') || /\D/.test(size)) {
-        throw new CompactDataTypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
+        throw new TypeError(`Invalid Argument, Expected A Number But Got ${size} Instead`);
       }
 
       if (size > 255) {
-        throw new CompactDataTypeError('Maximium Length Of Characters For VARCHAR DataType Exceeded');
+        throw new Error('Maximium Length Of Characters For VARCHAR DataType Exceeded');
       }
 
       return `VARCHAR(${size})`;
@@ -107,7 +106,7 @@ class DataTypes {
   static Enum(list) {
     return () => {
       if (!Array.isArray(list)) {
-        throw new CompactDataTypeError(`Invalid Argument, Expected An Array But Got ${list} Instead`);
+        throw new TypeError(`Invalid Argument, Expected An Array But Got ${list} Instead`);
       }
 
       return `ENUM(${String(list)})`;

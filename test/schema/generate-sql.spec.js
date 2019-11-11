@@ -1,10 +1,9 @@
 /* eslint-disable no-undef */
 const { Schema, DataTypes } = require('../../index');
-const SchemaErrror = require('../../src/schema/error');
 
 test('should throw error if first argument passed to schema is not a valid string', () => {
   expect(() => {
-    const types = [1, true, {}, 1.0, Infinity, -Infinity, []];
+    const types = [1, true, {}, 1.0, Infinity, -Infinity, [], undefined, null];
     // eslint-disable-next-line no-restricted-syntax
     for (const t of types) {
       // eslint-disable-next-line no-unused-vars
@@ -14,12 +13,12 @@ test('should throw error if first argument passed to schema is not a valid strin
         },
       });
     }
-  }).toThrow(SchemaErrror);
+  }).toThrow(TypeError);
 });
 
 test('should throw error if type is not a function', () => {
   expect(() => {
-    const types = [1, true, {}, 1.0, Infinity, -Infinity, [], 'TEXT'];
+    const types = [1, true, {}, 1.0, Infinity, -Infinity, [], 'TEXT', undefined, null];
     // eslint-disable-next-line no-restricted-syntax
     for (const t of types) {
       // eslint-disable-next-line no-unused-vars
@@ -29,5 +28,5 @@ test('should throw error if type is not a function', () => {
         },
       }).toSql();
     }
-  }).toThrow(SchemaErrror);
+  }).toThrow(TypeError);
 });
