@@ -40,6 +40,24 @@ const generateNull = (options, key) => {
 };
 
 /**
+ * TODO: generate auto increment for other database servers
+ * @param { object } options -
+ * @param { string } key - column name
+ * @returns { string}
+ */
+const generateAutoIncrement = (options, key) => {
+  let { autoIncrement } = options;
+
+  if (autoIncrement === undefined) autoIncrement = false;
+
+  if (typeof autoIncrement !== 'boolean') {
+    throw new TypeError(`Invalid Argument, Expected autoIncrement of ${key} to be a Boolean, But Got ${typeof type} Instead`);
+  }
+
+  return autoIncrement ? '  AUTO_INCREMENT' : '';
+};
+
+/**
  * @param { object } options
  * @param { string } key - column name
  */
@@ -72,6 +90,7 @@ class Schema {
       this.sql += generateTypes(value, key);
       this.sql += generateNull(value, key);
       this.sql += generatePrimaryKey(value, key);
+      this.sql += generateAutoIncrement(value, key);
       this.sql += ',\n';
     });
     this.sql += '\n)';
