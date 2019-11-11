@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const logger = require('../utils/logger');
 
 /**
  * @param { string } key - column name
@@ -54,7 +53,7 @@ const generateAutoIncrement = (options, key) => {
     throw new TypeError(`Invalid Argument, Expected autoIncrement of ${key} to be a Boolean, But Got ${typeof type} Instead`);
   }
 
-  return autoIncrement ? '  AUTO_INCREMENT' : '';
+  return autoIncrement ? ' AUTO_INCREMENT' : '';
 };
 
 /**
@@ -95,7 +94,7 @@ class Schema {
     });
     this.sql += '\n)';
 
-    logger(this.sql);
+    return this.sql;
   }
 }
 
