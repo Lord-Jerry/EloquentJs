@@ -1,0 +1,15 @@
+language: node_js
+    - "12.5.0"
+install:
+    - npm cache rm --force
+    - npm install
+    - npm install -D jest
+services:
+
+# cache:
+#     directories:
+#         - "node_modules"
+script: npm run test
+before_script:
+    
+after_script:
