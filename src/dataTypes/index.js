@@ -112,6 +112,35 @@ class DataTypes {
       return `ENUM(${String(list)})`;
     };
   }
+
+  /**
+   * INTEGER Can hold integers from, -2,147,483,648 -> 2,147,483,647
+   */
+  static Integer() {
+    return 'INTEGER';
+  }
+
+  /**
+   * BIGINT Can hold integers from, -9,223,372,036,854,775,808 -> 9,223,372,036,854,775,807
+   */
+  static BigInt() {
+    return 'BIGINT';
+  }
+
+  /**
+   * SMALLINT Can hold integers from -32,768 -> 32,767
+   */
+  static SmallInt() {
+    return 'SMALLINT';
+  }
+
+  /**
+   * TINYINT can hold integers from 0 -> 255
+   */
+  static TinyInt() {
+    return 'TINYINT';
+  }
 }
+
 
 module.exports = DataTypes;
