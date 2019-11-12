@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "A simple SQL ORM for Nodejs thats aims to be as simple as laravel's eloquent ORM",
   "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "compact": "./bin/cli.js"
+  },
   "scripts": {
     "test": "jest"
   },
